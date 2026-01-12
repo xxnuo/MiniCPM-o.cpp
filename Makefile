@@ -24,12 +24,12 @@ builder: sync-to-gpu
 	--name mcocpp-builder \
 	-v $(REMOTE_PATH)/:/opt/minicpm-o.cpp \
 	--network=host \
-	vllm:r36.4.tegra-aarch64-cu126-22.04 \
+	dustynv/cuda:12.8-samples-r36.4.0-cu128-24.04 \
 	bash"
 
 build:
-	pip install scikit-build-core pybind11
-	python -m build --wheel --no-isolation
+	pip3 install scikit-build-core pybind11 && \
+	python3 -m build --wheel --no-isolation
 
 cp:
 	ssh -t $(REMOTE) "cd $(REMOTE_PATH) && \
