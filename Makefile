@@ -30,7 +30,7 @@ builder: sync-to-gpu
 build:
 	export PIP_INDEX_URL=https://pypi.jetson-ai-lab.io/jp6/cu128 && \
 	export TAR_INDEX_URL=https://apt.jetson-ai-lab.io/jp6/cu128/24.04 && \
-	pip3 install scikit-build-core pybind11 && \
+	pip3 install build ninja scikit-build-core pybind11 && \
 	python3 -m build --wheel --no-isolation
 
 cp:
